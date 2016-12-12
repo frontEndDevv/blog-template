@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<br>
+    {{=form}}
+<br>
+    {{=for image in images:}}
+
+        <img src="{{=URL('default', 'download', args=image.image)}}" class="media-object"
+         style="width:158px; height:158px;">
+
+    {{pass}}

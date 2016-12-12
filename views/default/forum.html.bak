@@ -1,0 +1,101 @@
+{{extend 'layout.html'}}
+<link href="{{=URL('static','css/style.css')}}" rel="stylesheet" type="text/css"/>
+ <link href="{{=URL('static','css/clean-blog-min.css')}}" rel="stylesheet" type="text/css"/>
+
+<div class="colorme">
+<br><div id="container">
+<!-- Main Content --><center>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><aside><strong>Ad Content Here</strong></aside><br>
+                {{for page in pages:}}<img src="{{=URL('default', 'download', args=page.featured_image)}}" class="media-object"
+         style="width:158px; height:158px;"><div class="post-preview">
+                    <a href="{{=URL('show',args=page.id)}}">
+                        <h2 class="post-title">
+                            {{=page.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{=page.subtitle}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by <strong>{{=page.created_by}}</strong> on {{=page.created_on}}</p>
+                 <hr style="height: 1px;
+    background-color:#00008B;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;"><br>{{pass}}<aside><br><strong>Ad Content Here</strong></aside><br>
+                </div>
+
+
+<br><br>                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="{{=URL('default', 'show_all')}}">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div></center>
+<br><br> 
+            
+<hr style="height: 1px;
+    background-color:#00008B;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;"><br><br>
+{{pass}}
+
+
+<center><a href="{{=URL(vars={'page':int(request.vars.page)-1})}}"><strong><div class="btn"><i class="glyphicon glyphicon-backward"></i> Less</div></strong></a> <a href="{{=URL(vars={'page':int(request.vars.page)+1})}}"><div class="btn ">More <i class="glyphicon glyphicon-forward"></i></div></a>
+<br></center>
+<br><br>
+
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+
+
+{{block header}}
+    <header class="container-fluid background">
+      <div class="jumbotron text-center">
+          <h1>Hype News
+          <small>{{=response.subtitle or 'hype news'}}</small></h1><small>Hype News</small>
+      </div>
+    </header>
+{{end}}
+
+{{if 'message' in globals():}}
+<h2>{{=message}}</h2>
+<p class="lead">{{=T('How did you get here?')}}</p>
+<ol>
+  <li>{{=T('You are successfully running web2py')}}</li>
+  <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
+  <li>{{=XML(T('Which called the function %s located in the file %s',
+    (A(request.function+'()',_href='#'),
+    A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
+    _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
+  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
+    A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
+    _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
+  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
+</ol>
+{{elif 'content' in globals():}}
+{{=content}}
+
+{{pass}}
+
+{{block right_sidebar}}
+<div class="panel panel-info">
+  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
+      href="{{=URL('admin','default','index')}}">
+      <i class="glyphicon glyphicon-cog"></i>
+      {{=T("admin")}}
+    </a></h3></div>
+  <div class="panel-body">
+    {{=T("Don't know what to do?")}}
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+    <li class="list-group-item"><a href="http://web2py.com">web2py.com</a></li>
+    <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
+  </ul>
+</div>
+    {{end}}</div></div>

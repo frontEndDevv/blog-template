@@ -1,0 +1,41 @@
+{{extend 'layout.html'}}
+<link href="{{=URL('static','css/style.css')}}" rel="stylesheet" type="text/css"/>
+ <link href="{{=URL('static','css/clean-blog-min.css')}}" rel="stylesheet" type="text/css"/>
+
+<div class="colorme">
+{{block header}}
+    <header class="container-fluid background">
+      <div class="jumbotron text-center">
+          <h1>Hype News
+          <small>{{=response.subtitle or 'Donations'}}</small></h1><small></small>
+      </div>
+    </header>
+{{end}}<aside><strong>Ad Content Here</strong></aside>
+
+    <div id="container">
+<body>
+   <br>
+<!-- Main Content --><center>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                        <h1 class="post-title">
+                          Donations
+                        </h1>
+                    <br><br>
+                    <h3 class="post-subtitle">
+                        It costs us a lot to keep this service free for you. Any donations that you offer will be greatly appreciated.
+                        Thanks for donating!
+                    </h3><br><br>
+                    <h2>
+                        <strong>The Hype Is Real!</strong>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><aside><strong>Ad Content Here</strong></aside>
+    </div>
+</body>
+    </div>

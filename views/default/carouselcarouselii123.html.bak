@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+
+<center><h1>
+    <strong>These images will display your categories. Upload an image and select the category that matches it.</strong>
+    </h1><small>You can also change the categories and pictures</small></center><br><br>
+
+<br>
+    {{=grid}}
+<br>
+
+<br><br><br><br><h1>
+<strong><a href="{{=URL('default','hypenewsthehypenewsqq123')}}">Edit Posts</a></strong>
+</h1>
+
+<br><h1>
+<strong><a href="{{=URL('default','hypenewsthehypenewscc123')}}">Edit Comments</a></strong>
+</h1>

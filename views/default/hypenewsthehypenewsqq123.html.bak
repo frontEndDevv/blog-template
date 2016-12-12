@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}<br><br>
+<h1>
+    Management Console - Posts
+</h1><small>On this page you can create new posts by clicking "+Add Record"</small><br>
+{{=grid}}
+
+<br><br><br><br><h1>
+<strong><a href="{{=URL('default','hypenewsthehypenewscc123')}}">Edit Comments</a></strong>
+</h1>
+
+<br><h1>
+<strong><a href="{{=URL('default','carouselcarouselii123')}}">Edit Images/Categories</a></strong>
+</h1>

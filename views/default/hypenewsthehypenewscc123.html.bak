@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}<br><br>
+<h1>
+    Management Console - Comments
+</h1><br>
+{{=grid}}
+
+<br><br><br><br><h1>
+<strong><a href="{{=URL('default','hypenewsthehypenewsqq123')}}">Edit Posts</a></strong>
+</h1>
+
+<br><h1>
+<strong><a href="{{=URL('default','carouselcarouselii123')}}">Edit Posts</a></strong>
+</h1>

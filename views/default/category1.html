@@ -1,0 +1,118 @@
+{{extend 'layout.html'}}
+{{extend 'layout.html'}}
+<link href="{{=URL('static','css/style.css')}}" rel="stylesheet" type="text/css"/>
+
+<div class="colorme">
+    
+    <head>
+    {{block header}}
+    <header class="container-fluid background">
+      <div class="jumbotron text-center">
+          <h1>
+          <small>{{=response.subtitle or ''}}</small></h1><br><small style="color:#00008B"></small><br>
+          <br><small>
+              <br>
+          
+          </small>
+      </div>
+    </header>
+{{end}}
+</head>
+    
+<!-- Main Content --><center>
+    <div class="container"><div id="container">
+        
+        <!--carousel-->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+    <div class="carousel-inner" role="listbox">
+          {{for image in single:}}
+
+                <div class="item active"><a href="{{=URL('default','category1')}}">
+              <img src="{{=URL('default','download', args=image.image)}}" style="width:158px; height:158px;"
+                   alt="">
+              <div class="carousel-caption">
+                <h4>{{=image.category}}</h4></a>
+                <small></small>
+              </div>
+            </div>
+
+        {{pass}}
+
+      {{for image in images:}}
+
+           <div class="item"><a href="{{=URL('default',image.category)}}">
+          <img src="{{=URL('default', 'download', args=image.image)}}"
+             style="width:158px; height:158px;" alt="">
+          <div class="carousel-caption">
+              <h4>{{=image.category}}</h4></a>
+            <small></small>
+          </div>
+        </div>
+
+    {{pass}}
+                    
+  <!-- Wrapper for slides  ../images/hype.png-->
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><!--end of carousel-->
+
+  <br><hr style="height: 3px;
+    background-color:#8B0000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;"><br>
+
+        
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><br><br>
+                {{for page in pages:}}<img src="{{=URL('default', 'download', args=page.featured_image)}}" class="media-object"
+         style="width:158px; height:158px;"><div class="post-preview">
+                    <a href="{{=URL('show',args=page.id)}}">
+                        <h2 class="post-title">
+                            {{=page.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{=page.subtitle}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted on <strong> {{=page.created_on}}</strong> </p>
+                 <hr style="height: 1px;
+    background-color:#00008B;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;"><br>{{pass}}
+                </div>
+
+
+<br><br>
+
+                </center><center><a href="{{=URL(vars={'page':int(request.vars.page)-1})}}"><strong><div class="btn"><i class="glyphicon glyphicon-backward"></i> Less</div></strong></a> <a href="{{=URL(vars={'page':int(request.vars.page)+1})}}"><div class="btn ">More <i class="glyphicon glyphicon-forward"></i></div></a>
+<br></center>
+<br><br>
+<br><br> 
+
+<hr style="height: 1px;
+    background-color:#00008B;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;"><br><br>
+
+
+
+        </div></div>

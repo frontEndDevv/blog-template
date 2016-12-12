@@ -1,0 +1,75 @@
+{{extend 'layout.html'}}
+<link href="{{=URL('static','css/style.css')}}" rel="stylesheet" type="text/css"/>
+
+
+<div class="colorme">
+
+<center><header class="container-fluid background">
+    <div class="jumbotron text-center">
+<h1 style="color:#00008B">
+    <strong></strong>
+</h1>
+        <br><div align="left">
+    <br><small><a href="{{=URL('forum')}}" class="btn btn-default btn=sm"><i class="glyphicon glyphicon-list"></i>
+        <em> Back</em></a></small>   <br><br><br>         
+        </div>
+        
+    </div></header>
+                   <br>
+    
+        <center><div class="dropdown ">
+  <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Facebook Feed
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+       <!--plugin-->
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1768279960123517";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
+   <div class="fb-page" data-href="https://www.facebook.com/thehypenews/"data-tabs="timeline,comments,videos" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/thehypenews/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/thehypenews/">Hype News</a></blockquote></div>
+    </div>  </center> 
+            
+      
+
+    
+    <br> 
+             
+    <h1>
+    <strong>{{=page.title}}</strong>
+</h1><br>
+    <img src="{{=URL('default', 'download', args=page.featured_image)}}" 
+                      class="img-fluid" alt="Responsive image" width="304" height="236">
+       <br>
+    <div id="container">
+    <body>
+
+<h3>{{=MARKMIN(page.body)}}</h3><br><br><br>
+
+
+<h4>
+    Comments
+</h4>
+{{for post in comments:}}
+    <p>
+     <i>{{=post.your_name}}</i>: {{=post.body}}
+</p>
+{{pass}}<br><br>
+                <br>
+<h2>
+    Comment
+</h2>{{=form}}<br><br>
+</center>
+<br>
+<br><br>
+
+<link href="{{=URL('static','css/style.css')}}" rel="stylesheet" type="text/css"/>
+ <link href="{{=URL('static','css/clean-blog-min.css')}}" rel="stylesheet" type="text/css"/>
+</div>    
+    </body>
+</div>
